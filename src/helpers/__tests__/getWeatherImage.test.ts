@@ -1,5 +1,4 @@
-import getWeatherImage from '../getWeatherImage';
-
+import getWeatherImage, {WeatherCode} from '../getWeatherImage';
 test.each([
   {weatherCode: '0', image: 'https://openweathermap.org/img/wn/01d@2x.png'},
   {weatherCode: '1', image: 'https://openweathermap.org/img/wn/01d@2x.png'},
@@ -32,6 +31,6 @@ test.each([
 ])(
   'should render the correct image for weather code: $weatherCode',
   ({weatherCode, image}) => {
-    expect(getWeatherImage(weatherCode)).toEqual(image);
+    expect(getWeatherImage(weatherCode as WeatherCode)).toEqual(image);
   },
 );
